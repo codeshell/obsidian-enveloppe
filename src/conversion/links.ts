@@ -281,9 +281,8 @@ function createMarkdownLinks(
 	}
 
 	const anchorMatch = fileName.match(/#(.*)/);
-	let anchor = anchorMatch ? anchorMatch[0] : null;
+	const anchor = anchorMatch ? '#' + slugifyAnchor(anchorMatch[0], settings) : '';
 	const encodedUri = `${slugifyAnchor(markdownName.replace(ext, ""), settings, true)}${ext}`;
-	anchor = anchorMatch ? '#' + slugifyAnchor(anchor, settings) : null;
 	return `${isEmbed}[${altLink}](${encodedUri}${anchor})`;
 }
 
