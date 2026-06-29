@@ -280,10 +280,10 @@ function createMarkdownLinks(
 		ext = "";
 	}
 
-	const anchorMatch = fileName.match(/(#.*)/);
+	const anchorMatch = fileName.match(/#(.*)/);
 	let anchor = anchorMatch ? anchorMatch[0] : null;
 	const encodedUri = `${slugifyAnchor(markdownName.replace(ext, ""), settings, true)}${ext}`;
-	anchor = slugifyAnchor(anchor, settings);
+	anchor = anchorMatch ? '#' + slugifyAnchor(anchor, settings) : null;
 	return `${isEmbed}[${altLink}](${encodedUri}${anchor})`;
 }
 
@@ -303,13 +303,12 @@ function slugifyAnchor(
 		typeof settings.conversion.links.slugifyAnchor === "string"
 			? settings.conversion.links.slugifyAnchor
 			: "disable";
-	const symbol = encode ? "" : "#";
 	if (anchor && slugifySetting !== "disable") {
 		switch (settings.conversion.links.slugifyAnchor) {
 			case "lower":
 				return anchor.toLowerCase().replaceAll(" ", "-");
 			case "strict":
-				return `${symbol}${slugify(anchor, { lower: true, strict: true })}`;
+				return `${slugify(anchor, { lower: true, strict: true })}`;
 
 			default:
 				return encode ? encodeURI(anchor) : anchor;
