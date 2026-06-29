@@ -17,10 +17,6 @@ jobs:
         with:
           submodules: 'recursive'
           fetch-depth: 0
-      - name: Use Node.js
-        uses: actions/setup-node@v6
-        with:
-          node-version: "22"
 
       # Get the version number and put it in a variable
       - name: Get Version
@@ -29,10 +25,13 @@ jobs:
           echo "::set-output name=tag::$(git describe --abbrev=0 --tags)"
 
       # Build the plugin
-      - name: Build
+      - name: Use bun instead of Node.js
+        uses: oven-sh/setup-bun@v2
+      - name: Build (bun)
         id: build
         run: |
-          npm run build
+          bun install
+          bun run build
 
       # Package the required files into a zip
       - name: Package
