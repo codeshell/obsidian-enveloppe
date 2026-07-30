@@ -1,4 +1,14 @@
-![Obsidian Downloads](https://img.shields.io/badge/dynamic/json?logo=obsidian&color=%23483699&label=downloads&query=%24%5B%22obsidian-mkdocs-publisher%22%5D.downloads&url=https%3A%2F%2Fraw.githubusercontent.com%2Fobsidianmd%2Fobsidian-releases%2Fmaster%2Fcommunity-plugin-stats.json)
+> You are looking at a soft fork of [Enveloppe/obsidian-enveloppe](https://github.com/Enveloppe/obsidian-enveloppe)
+> - The upstream introduced regressions when converting anchor links like `[[My Page#a subheading]]` or `[Subheading](My%20Page#a%20subheading.md)`. The result is multiple `##` chars breaking links in the generated output.
+> - The patched version in this repository fixes the link generator and slugifyAnchor() function
+> - Tracking upstream issue: https://github.com/Enveloppe/obsidian-enveloppe/issues/419
+
+> This fork includes [Fix frontmatter links not transforming correctly #415](https://github.com/Enveloppe/obsidian-enveloppe/pull/415).
+> - The fix is directly pulled from the original author [mAAdhaTTah - fix-frontmatter-links-not-transforming](https://github.com/mAAdhaTTah/obsidian-enveloppe/tree/fix-frontmatter-links-not-transforming)
+> - Wikilinks in the frontmatter are now correctly processed (either converted to markdown links or to text, if the target dos not exist)
+> - Tracking upstream issue: https://github.com/Enveloppe/obsidian-enveloppe/issues/406
+
+> - Install it via BRAT (recommended) or manually
 
 # ✉️ Enveloppe : An Obsidian GitHub Vault Publisher
 

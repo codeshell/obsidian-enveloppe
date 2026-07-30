@@ -1,3 +1,6 @@
 [submodule "src/i18n/locales"]
 	path = src/i18n/locales
 	url = git@github.com:Enveloppe/locales.git
+[submodule "scripts"]
+	path = scripts
+	url = git@github.com:codeshell/obsidian-plugins-dev-scripts.git
